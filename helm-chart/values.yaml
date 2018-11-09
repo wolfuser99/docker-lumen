@@ -3,9 +3,9 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: USERNAME/phpfpm-app
-  tag: 0.1.0
-  pullPolicy: IfNotPresent
+  repository: madwyatt/docker-lumen
+  tag: latest
+  # pullPolicy: always
 nginxService:
   name: nginx
   type: NodePort
@@ -32,7 +32,7 @@ config:
   nginx.conf: |-
     server {
       listen 0.0.0.0:8080;
-      root /app;
+      root /app/public;
       location / {
         index index.html index.php;
       }

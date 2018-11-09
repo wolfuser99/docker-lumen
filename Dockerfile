@@ -5,4 +5,4 @@ FROM bitnami/php-fpm:latest
 COPY app-code /app
 
 # The application's directory will be the working directory
-WORKDIR /app/public
+WORKDIR /app
