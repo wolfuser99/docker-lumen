@@ -5,7 +5,7 @@ replicaCount: 1
 image:
   repository: madwyatt/docker-lumen
   tag: latest
-  # pullPolicy: always
+  pullPolicy: Always
 nginxService:
   name: nginx
   type: NodePort
@@ -34,7 +34,7 @@ config:
       listen 0.0.0.0:8080;
       root /app/public;
       location / {
-        index index.html index.php;
+        index.php;
       }
       location ~ \.php$ {
         fastcgi_pass phpfpm-php-app-phpfpm:9000;
