@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: madwyatt/docker-lumen
-  tag: latest
+  repository: php
+  tag: 7.2-fpm-alpine3.8
   pullPolicy: Always
   containerPort: 9000
 
@@ -20,11 +20,11 @@ service:
 ingress:
   enabled: false
   annotations: 
-    kubernetes.io/ingress.class: nginx
+    # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - desck.tk
+    - chart-example.local
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
