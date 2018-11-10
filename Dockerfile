@@ -56,8 +56,7 @@ RUN composer dump-autoload --optimize;
 
 # Create the Laravel Log file and assign it to www-data:
 RUN mkdir -p /var/www/${PROJECT}/storage/logs && \
-    touch /var/www/${PROJECT}/storage/logs/laravel.log && \
-    chown www-data:www-data /var/www/${PROJECT}/storage/logs/laravel.log
+    chown www-data:www-data 
 
 #Make storage folder and give access to www-data
 RUN mkdir -p /var/www/${PROJECT}/storage && \
