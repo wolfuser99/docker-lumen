@@ -1,2 +1,3 @@
-FROM nginx:1.13
+FROM nginx:latest
 COPY site.conf /etc/nginx/conf.d/default.conf
+COPY ../app-code /var/www/code

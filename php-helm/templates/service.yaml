@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "php-helm.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "php-helm.name" . }}
+    helm.sh/chart: {{ include "php-helm.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.containerPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: {{ include "php-helm.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
