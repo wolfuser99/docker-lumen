@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: php
   tag: 7.2-fpm-alpine3.8
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
   containerPort: 9000
 
 nameOverride: ""
