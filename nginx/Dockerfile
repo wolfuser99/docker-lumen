@@ -1,5 +1,5 @@
 FROM nginx:latest
-run ls
+RUN ls
 COPY site.conf /etc/nginx/conf.d/default.conf
 
 COPY public /var/www/lumen/public
