@@ -1,7 +1,8 @@
 FROM nginx:latest
 
-ARG PROJECT=laravel5
-WORKDIR /var/www/${PROJECT}/public
+COPY site.conf /etc/nginx/conf.d/default.conf
+
+ARG PROJECT=lumen
 COPY public /var/www/${PROJECT}/public
 
-COPY site.conf /etc/nginx/conf.d/default.conf
+WORKDIR /var/www/${PROJECT}/public
