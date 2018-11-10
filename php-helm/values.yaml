@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: php
-  tag: 7.2-fpm-alpine3.8
+  repository: gcr.io/tesis-project/github.com/wolfuser99/docker-lumen@sha256
+  tag: 4685b9a3c0aacd8e6861b252849562f1eb61ea1da6d3a27daff441f0b591296e
   pullPolicy: IfNotPresent
   containerPort: 9000
 

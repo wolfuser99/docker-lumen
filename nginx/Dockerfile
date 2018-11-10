@@ -1,5 +1,5 @@
 FROM nginx
 ARG PROJECT=lumen
-WORKDIR /var/www/${PROJECT}/public
-COPY /public /var/www/${PROJECT}/public
 COPY /nginx/site.conf /etc/nginx/conf.d/default.conf
+COPY /public /var/www/${PROJECT}/public
+WORKDIR /var/www/${PROJECT}/public
