@@ -27,14 +27,14 @@ spec:
             - name: http
               containerPort: {{ .Values.image.containerPort }}
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 9000
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 9000
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: 9000
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: 9000
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}

@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/tesis-project/github.com/wolfuser99/docker-lumen-nginx@sha256
-  tag: 95cc72ce5acbe22afcbedbeb6aa15beb001cad2622386e725033de0f06af6231
+  repository: madwyatt/docker-lumen
+  tag: nginx
   pullPolicy: Always
 
 nameOverride: ""
