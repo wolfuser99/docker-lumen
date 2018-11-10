@@ -1,5 +1,4 @@
 FROM nginx:latest
-RUN /bin/bash -c 'ls -lha /var/lib/docker/tmp/docker-builder*'
 RUN /bin/bash -c 'ls -lha /var/lib/docker/tmp/'
 COPY site.conf /etc/nginx/conf.d/default.conf
 COPY public /var/www/lumen/public
