@@ -1,17 +1,9 @@
 FROM php:7.2-fpm
 
-MAINTAINER Eamon Keane <eamon.keane1@gmail.com>
-
 ARG VCS_REF
 ARG BUILD_DATE
-ARG PROJECT=laravel5
+ARG PROJECT=lumen
 ARG DOCKERFILE_DIR=docker/php-fpm
-
-# Metadata
-LABEL org.label-schema.vcs-ref=$VCS_REF \
-    org.label-schema.vcs-url="https://github.com/EamonKeane/laravel5-5-example" \
-    org.label-schema.build-date=$BUILD_DATE \
-    org.label-schema.docker.dockerfile="/docker/php-fpm/Dockerfile"
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -62,10 +54,6 @@ COPY . /var/www/${PROJECT}
 
 RUN composer dump-autoload --optimize;
 
-COPY ${DOCKERFILE_DIR}/entrypoint.sh entrypoint.sh
-
-RUN chmod +x entrypoint.sh
-
 # Create the Laravel Log file and assign it to www-data:
 RUN mkdir -p /var/www/${PROJECT}/storage/logs && \
     touch /var/www/${PROJECT}/storage/logs/laravel.log && \
@@ -77,6 +65,5 @@ RUN mkdir -p /var/www/${PROJECT}/storage && \
 
 EXPOSE 9000
 
-ENTRYPOINT ["./entrypoint.sh"]
 
 CMD ["php-fpm"]

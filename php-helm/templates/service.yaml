@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: {{ include "php-helm.fullname" . }}
   labels:
+    app: php-helm
     app.kubernetes.io/name: {{ include "php-helm.name" . }}
     helm.sh/chart: {{ include "php-helm.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
@@ -11,10 +12,9 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.image.containerPort }}
       protocol: TCP
       name: http
   selector:
     app.kubernetes.io/name: {{ include "php-helm.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
-    app: php-fpm
+    app: php-helm
