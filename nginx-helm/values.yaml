@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: madwyatt/docker-lumen
-  tag: master
+  tag: latest
   pullPolicy: Always
 
 nameOverride: ""
